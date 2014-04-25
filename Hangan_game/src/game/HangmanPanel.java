@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ I swear I, for the most part don't know what I am doing for now all
+ * I know  is I am trying to create an interface
  */
 
 package game;
@@ -27,74 +26,14 @@ public class HangmanPanel extends JPanel {
     
     HangmanPanel (){
          
-      int again;
-      do 
-      {
-        
-game();
-         again = JOptionPane.showConfirmDialog (null, "Would you like to play?");
-      }
-      while (again == JOptionPane.YES_OPTION);
-
+    
 
 
         
     }//end constructor
     
     
-    
-    
-    
- 
-    
-    
-    public void game (){
-    
         
-        String word = new wordgenerator().toString();
-        int i = 0, wordLength = word.length();
-        
-        while (wordLength > i)
-        {
-           createtop();
-            //createmiddle();
-           //createbottom();
-        
-        
-        
-        
-        }
-        
-        
-    }
-    
-    /** createtop() creates the banner 
-     * the banner is beautiful
-     * that's all it does
-     * 
-     */
-    
-  public void createtop(){ 
-  
-      BufferedImage img = null;
-try {
-    img = ImageIO.read(new File("banner.png"));
-} catch (IOException e) {
-}
-      
-      
-  
-  
-  }  
-    
-    
-    
-    
-    
-    
-        
-    
-    
 }//end HangmanPanel class
 
 
