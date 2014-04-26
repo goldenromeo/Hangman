@@ -25,15 +25,47 @@ public class HangmanPanel extends JPanel {
     // */
     
     HangmanPanel (){
-         
+    //first lets create a wordgenerator object     
+    wordgenerator word = new wordgenerator();
     
+        
 
 
         
     }//end constructor
     
     
+      
+    
+   private void wordtochars(wordgenerator wordpassed ){
+    
+    
+    String theword = wordpassed.toString();
+    int index = 0;
+    
+    
+    while ( index < theword.length())
+    {
         
+        char [] theleters = new char [20];
+        
+    
+        
+        // char[n]= theword.charAt( (index - 1) ); this doesn't work ill try to fix tomorow
+        
+        
+        index++;
+        
+    }
+    
+    
+    
+    }
+    
+    
+    
+    
+    
 }//end HangmanPanel class
 
 
