@@ -28,7 +28,7 @@ public class wordgenerator {
                 "marshall","river", "bank","chicken","soup", "street",
                 "dancer","couple","music","life","fans","confidence",
                 "coffee","world","hello","light","day","hill","father",
-            "mother","new","granfather","child","dog","vannesa",
+            "mother","new","grandfather","child","dog","vannesa",
             "friend", "song","dream","young","live","laugh","love","dalila",
             "free","radio","plan","eyes","life","heart","smile", "lost",
             "world","red","blue","wide","cage","around","turn","lightyear",
