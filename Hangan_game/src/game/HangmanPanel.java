@@ -42,23 +42,16 @@ public class HangmanPanel extends JPanel {
     
     String theword = wordpassed.toString();
     int index = 0;
+       
     
+    char charArray []= theword.toCharArray();
     
-    while ( index < theword.length())
-    {
-        
-        char [] theleters = new char [20];
-        
-    
-        
-        // char[n]= theword.charAt( (index - 1) ); this doesn't work ill try to fix tomorow
-        
-        
-        index++;
-        
-    }
-    
-    
+   JLabel JLabelArray [];
+   int n = 0;
+   
+   while (n < charArray.length)
+   {
+   }
     
     }
     
