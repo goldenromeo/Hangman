@@ -29,12 +29,20 @@ public class HangmanPanel extends JPanel
     HangmanPanel (){
     //first lets create a wordgenerator object   
         
+        //GridLayout experimentLayout = new GridLayout(0,2);
+        
+        
+        
     wordgenerator word = new wordgenerator(); //this is the word
     
+    JPanel panel1 = new JPanel();
+    JPanel panel2 = new JPanel();
     
-         JLabel j = new JLabel("Yay I finally buil the thing, "+
-                  "this actually made me happy. ");
-       this.add(j)  ;
+    
+    
+         JLabel j = new JLabel("<html> Yay I finally buil the thing, <br/> <br/> <br/> <br/>"+
+                  "this actually made me happy. </html>");
+       panel1.add(j)  ;
        
        
         wordToJLabel(word);//this builds the empty JLabels and is
@@ -45,13 +53,16 @@ public class HangmanPanel extends JPanel
         
         //might use or might not use on keyboard press event
         JTextField textField = new JTextField(5);
-        this.add(textField);
+        panel1.add(Box.createHorizontalStrut(10)); 
+        panel2.add(textField);
+        
           
 
         //play the game 
         game();
-        
-        
+         
+        this.add(panel1);
+        this.add(panel2);
         
     }//end constructor
     
@@ -70,7 +81,7 @@ public class HangmanPanel extends JPanel
        */
     
    private void wordToJLabel(wordgenerator wordpassed ){
-    
+   
     
     String theword = wordpassed.toString(); //wordgenerator --> String
       
