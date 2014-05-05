@@ -23,8 +23,7 @@ public class Hangman {
         
         JFrame frame = new JFrame("Hangman");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       // frame.setSize(300,300);
-        frame.setLayout(new BorderLayout(300,300));
+       
         
         frame.getContentPane().add(new HangmanPanel());
         

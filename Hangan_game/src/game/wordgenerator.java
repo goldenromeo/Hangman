@@ -22,34 +22,17 @@ public class wordgenerator {
 //The following array contains all the words that will be used on hangman game
             //also known as the random words
             
-            String wordlist [] = new String [] {"meep","hello","time",
-                "person", "year","day","company","party","hello","awesome",
-                "yay", "beautiful","love","princess", "chips","frozen",
-                "marshall","river", "bank","chicken","soup", "street",
-                "dancer","couple","music","life","fans","confidence",
-                "coffee","world","hello","light","day","hill","father",
-            "mother","new","grandfather","child","dog","vannesa",
-            "friend", "song","dream","young","live","laugh","love","dalila",
-            "free","radio","plan","eyes","life","heart","smile", "lost",
-            "world","red","blue","wide","cage","around","turn","lightyear",
-            "spoilers","doctor","Sherlock","space","taste", "now","time",
-            "pandora","cinema","class","lifetime","favorite","movie",
-            "everything","thousand","fascinatining","running","always",
-            "running", "thriller", "hollywood","treasure","stars", 
-            "science","fiction","drama","romance","flower","summer",
-            "guess", "wonderful", "action","control","show","baby",
-            "root","vocals","beep","boop","nyan","cat","marbles",
-            "more","you", "make","me","java","rain","email","we","hug",
-            "mission","control","airplane","farewell","faraway","titanium",
-            "sticks","stones","bulletproof","bath","body","work",
-            "sweet","sight","promise","feel","waste","myself","rice","treat",
-            "cereal","product","wild","deny","fire","break","leave","original",
-            "diet","sugar","salt","elizabeth","iron","marshmallow","flavor",
-            "one","corn","syrup","bestfriend","right","wrong","move","separate",
-            "way","close","lie","hide","true","truth","return","deserve","give",
-            "orange","apple","Iphone", "Android","computer","plum","purple",
-            "painting","DiCaprio","moon","google","atom","facebook","twitter"};
-    
+          String wordlist [] = new String [] {"ABANDONED","ABOLITION","ABRUPTION"
+            ,"ACADEMIES","ACCEPTANT","ACCESSORY","ACCIDENTS","ACCLAIMED","ACCORDION","ACCOUTERS","ACTIVATED","ACTIVATOR",
+            "ACTIVISTS","ADAPTABLE","ADDICTION","ADHESIVES","ADMISSION","ADOPTABLE","ADORNMENT","ADSORBENT",
+            "ADULTHOOD","ADVANTAGE","ADVENTURE","ADVERTISE","AEROBATIC","AEROPLANE",
+            "AEROSPACE","AUDIENCES","BALLERINA","BALLGAMES","BALLROOMS","BREAKFAST","CHECKBOOK"
+            ,"CHECKLIST","PANORAMIC","NEIGHBOUR","NANOMETER","MUSHROOMS","MISTYPING","MOSQUITOS","MOTORBIKE",
+            "MAGNIFIER","MUSKETEER","ZOOKEEPER","WHISTLING","WERWOLVES","WATERLESS",
+            "VALENTINE","UNPACKING","UNPLUGGED","UNCHANGED","TYPOGRAPH","TRAINWAYS",
+            "TRAVELLER","SURFBOARD","SYMBOLISM","SUSPENDED","SUBROGATE","SUGARCANE",
+            "SUGARCOAT"};
+    //all the words should be 9 letters long to make things easier
             
     Random random = new Random(); //creates a Random object
     
