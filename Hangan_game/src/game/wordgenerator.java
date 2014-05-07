@@ -28,7 +28,7 @@ public class wordgenerator {
             "ADULTHOOD","ADVANTAGE","ADVENTURE","ADVERTISE","AEROBATIC","AEROPLANE",
             "AEROSPACE","AUDIENCES","BALLERINA","BALLGAMES","BALLROOMS","BREAKFAST","CHECKBOOK"
             ,"CHECKLIST","PANORAMIC","NEIGHBOUR","NANOMETER","MUSHROOMS","MISTYPING","MOSQUITOS","MOTORBIKE",
-            "MAGNIFIER","MUSKETEER","ZOOKEEPER","WHISTLING","WERWOLVES","WATERLESS",
+            "MAGNIFIER","MUSKETEER","ZOOKEEPER","WHISTLING","WATERLESS",
             "VALENTINE","UNPACKING","UNPLUGGED","UNCHANGED","TYPOGRAPH","TRAINWAYS",
             "TRAVELLER","SURFBOARD","SYMBOLISM","SUSPENDED","SUBROGATE","SUGARCANE",
             "SUGARCOAT"};
@@ -66,6 +66,12 @@ public class wordgenerator {
     }
     
     
+    
+    public int lenght() {
+        return hangmanWord.length();
+    }
+    
+    
 /**
  * toString method 
  * this method is used when printing a wordgenerator object.
@@ -81,8 +87,67 @@ public class wordgenerator {
             }
     
     
+ public char[] toCharArray (){
     
     
+    return hangmanWord.toCharArray();
+ }
+ 
+ 
+ public boolean contains (char x){
+    String neh= Character.toString(x);
+     
+        return hangmanWord.contains(neh);
+    
+    
+    
+ }
+ 
+ 
+ public boolean isFirstchar (char x){
+    
+        return x == hangmanWord.charAt(0);
+    
+    
+ }
+ 
+ 
+ 
+ public int [] chartAt ( char x){
+    
+    int [] meh =  new int [9];
+    
+    
+    int correct= 0;
+     
+   String neh= Character.toString(x);
+    
+     if(hangmanWord.contains(neh)){
+    for(int pi =0; pi < meh.length ; pi++ ){
+    
+   if (hangmanWord.charAt(pi) == x){
+       meh[correct] = pi;
+       correct++;}else {}
+   }
+    
+     }
+     
+    return meh;
+ }
+ 
+
+ 
+ public char theCharAt (int n){
+    
+    
+    return hangmanWord.charAt(n);
+ }
+ 
+ public String theCharAt_String (int n){
+    
+    
+    return  Character.toString(hangmanWord.charAt(n));
+ }
 
 
 

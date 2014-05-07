@@ -40,6 +40,13 @@ public class Hangman {
      }
     
     
+   public void newGame(){
+        
+        new HangmanPanel();
+    
+    }
+    
+    
 }
 
 

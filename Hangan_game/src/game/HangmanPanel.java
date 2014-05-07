@@ -1,12 +1,21 @@
 /**
- I swear I, for the most part don't know what I am doing for now all
- * I know  is I am trying to create an interface
- */
+things are working better 
+images and comparison needed
+*/
 
 package game;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+
 import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+
 
 
 
@@ -18,8 +27,7 @@ import javax.swing.*;
 public class HangmanPanel extends JPanel 
 {
   char [] charsAvailable;
-  char [] charsUsed;
-  char [] charsGuessed;
+  
   /**
    * holds the input box and submit button
    */
@@ -29,59 +37,98 @@ public class HangmanPanel extends JPanel
    */
   
   JPanel panel2 = new JPanel();
-  JButton submitButton = new JButton("Submit");
+  JButton submitButton ;
   
   
   //________________Images____________
+          
+        
+        ImageIcon image0 = new ImageIcon(getClass().getResource("i0.png"));
+        ImageIcon image1 = new ImageIcon(getClass().getResource("i1.png"));
+        ImageIcon image2 = new ImageIcon(getClass().getResource("i2.png"));
+        ImageIcon image3 = new ImageIcon(getClass().getResource("i3.png"));
+        ImageIcon image4 = new ImageIcon(getClass().getResource("i4.png"));
+        ImageIcon image5 = new ImageIcon(getClass().getResource("i5.png"));
+        ImageIcon image6 = new ImageIcon(getClass().getResource("i6.png"));
+        ImageIcon image7 = new ImageIcon(getClass().getResource("i7.png"));
+        ImageIcon image8 = new ImageIcon(getClass().getResource("i8.png"));
+        
+        ImageIcon current = new ImageIcon(getClass().getResource("i0.png")); 
+        JLabel pics = new JLabel(current);
+        
+        
+        
+        
+//______________ end pics  
+   
+
+
   
-  ImageIcon start,i1,i2,i3,i4,i5,i6,i7,end,current;
   
+  //    create a wordgenerator object and text field items and compare
   
+  JTextField textField = new JTextField(" ",10);//text field
+  
+  String textFieldValue;
+      wordgenerator word = new wordgenerator(); //this is the word
+//      compareArray compare = new compareArray();
+JLabel JLabelArray [];  
    ///////////////////////////////////// 
   
-  
-  
+  int guessed=0;//amount of items guessed only used to know when to say good job
+   int failed=0;//used to determine picture shown
     HangmanPanel (){
-    //first lets create a wordgenerator object   
         
-        super(new GridLayout(4,1));//3 rows 1 column
+       
+    //first lets set layout
+        
+        super(new GridLayout(2,1));//4 rows 1 column
+        //enabled on demo
+        System.out.println(word.toString());
         
         
         
-    wordgenerator word = new wordgenerator(); //this is the word
+        
+        
+        
+
+      
     
     
     
     
-    
-    
-         JLabel j = new JLabel(" Yay I finally buil the thing,"+
-                  "this makes me very happy.",JLabel.CENTER);
+    ////////////////////////Welcome
+         JLabel j = new JLabel(" Hi, to play enter the key you think "+
+                  "is right and press enter\n Or click the submit button.",JLabel.CENTER);
     add(j)  ;
        
        
+    //////////////////////end Welcome 
+    
+    
+    
         wordToJLabel(word);//this builds the empty JLabels and is
         //latter used for the painting the char to its space.
-        
-        
-        
+
         
        //input box + submit button
-        JTextField textField = new JTextField(5);
+        submitButton = new JButton("Submit");
+        submitButton.addActionListener(new ButtonListener());
         
+        
+        textField.addActionListener(new ButtonListener());
         panel1.add(textField);
         panel1.add(submitButton);
         add(panel1);
-pics();          
 
-        //play the game 
-        game();
+
+        
+        
          
        
        
         
-    }//end constructor
-    
+    }    
     
       /**
        * When called this method will convert 
@@ -96,17 +143,18 @@ pics();
        * @param wordpassed the wordgenerator object passed
        */
     
+    
    private void wordToJLabel(wordgenerator wordpassed ){
    
-    panel2.setPreferredSize(new Dimension(600 , 50));
+    panel2.setPreferredSize(new Dimension(400 , 50));
        
        
     String theword = wordpassed.toString(); //wordgenerator --> String
       
     char charArray []= theword.toCharArray(); //word to char array
-     setCharsAvailable(charArray); // tells the program the characters in word
+      
     
-   JLabel JLabelArray [] = new JLabel[charArray.length] ; //creates jlabelarray
+    JLabelArray  = new JLabel[charArray.length] ; //creates jlabelarray
    
    int n = 0; //used on loop below
    
@@ -115,105 +163,43 @@ pics();
    while (n < charArray.length)
    {
        
-       //adds the spaces might delete if presents issue later
+       //adds the "-" characters that hold the space for the actual letter
        JLabelArray[n] =  new JLabel("-");
        panel2.add(JLabelArray[n]);
        
        
+       n ++; // used above
+}// end while loop
+   //add pics here
+   
+   pics.setPreferredSize(new Dimension(300,300));
+   add(pics);
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   add(panel2);
+   
+    ////// set arrays to do something with this
+    
+       setCharsAvailable(charArray);// tells the program the characters in word
        
-       
-       n ++; // add plus two ensures space in between is not overriden
-add(panel2);
-       
-   }
+   
+   
+    
+   
+   
+   
+   
     
     }//end wordToJLabel
    
    
-   public void game ()
-   { 
-           /**chars that can be used in the array 
-            * 
-            */
-      char [] gameCharsAvailable = new char[charsAvailable.length] ;
-      gameCharsAvailable = getCharsAvailable();
-      
-      /**
-       * chars that have been used
-       * used to count game progress
-       */
-  char [] gamecharsUsed = new char[charsAvailable.length * 3] ;
-         
-  /**
-   * correct guesses
-   * 
-   */
-  
-  char [] gamecharsGuessed= new char[charsAvailable.length ] ;
-      /**
-       * when correct guesses equals this game ends
-       */
-   int youwin = charsAvailable.length;
-   
-   
-   while (gamecharsGuessed.length != youwin){
-   
-   
-   
-   } 
-   
-   }//end class game  
-   
-   
-   //____________________set image icons to respective pic_________________
-   
-   void pics(){
-   start = new ImageIcon("start.png");
-   i1 = new ImageIcon("1.png");
-   i2 = new ImageIcon("2.png");
-   i3 = new ImageIcon("3.png");
-   i4 = new ImageIcon("4.png");
-   i5 = new ImageIcon("5.png");
-   i6 = new ImageIcon("6.png");
-   i7 = new ImageIcon("7.png");
-   end = new ImageIcon("end.png");
-   
-   int si=3;
-   
-   
-   switch(si){
-       
-       case 0: current = new ImageIcon("start.png");
-           break;
-       case 1: current = new ImageIcon("1.png");
-           break;
-       case 2: current = new ImageIcon("2.png");
-           break;
-       case 3: current = new ImageIcon("3.png");
-           break;
-       case 4: current = new ImageIcon("4.png");
-           break;
-       case 5: current = new ImageIcon("5.png");
-           break;
-       case 6: current = new ImageIcon("6.png");
-           break;
-       case 7: current = new ImageIcon("7.png");
-           break;
-       case 8: current = new ImageIcon("end.png");
-           break;
-       
-       
-   
-   default: current = new ImageIcon("start.png"); ;   
-       break;
-            
-    }//end switch
-   JLabel thes = new JLabel(current);
-   add(thes);
-   
-   
-  
-   }
 
    
    
@@ -228,20 +214,8 @@ add(panel2);
         return charsAvailable;
     }
 
-    /**
-     * @return the charsUsed
-     */
-    private char[] getCharsUsed() {
-        return charsUsed;
-    }
-
-    /**
-     * @return the charsGuessed
-     */
-    private char[] getCharsGuessed() {
-        return charsGuessed;
-    }
-
+    
+    
     /**
      * @param charsAvailable the charsAvailable to set
      */
@@ -249,39 +223,192 @@ add(panel2);
         this.charsAvailable = charsAvailable;
     }
 
-    /**
-     * @param charsUsed the charsUsed to set
-     */
-    private void setCharsUsed(char[] charsUsed) {
-        this.charsUsed = charsUsed;
-    }
+    
 
-    /**
-     * @param charsGuessed the charsGuessed to set
-     */
-    private void setCharsGuessed(char[] charsGuessed) {
-        this.charsGuessed = charsGuessed;
-    }
    
-  //------------------------------  compare array
+  //------------------------------  listener
     
     
+     private class ButtonListener extends JPanel implements ActionListener{
+    char [] charsAvailableChecker = getCharsAvailable();//chars available in value
+            
+        
+            int [] theCheckerInt;
+            char theCheckerChar;
+             int whileLoopInt=0;
+        
+         
+             
+             
+             
+         
+         @Override
+        public void actionPerformed (ActionEvent event){
+ textFieldValue = textField.getText();
+               
+               textField.setText("");
+  char[] textFieldValueChar= textFieldValue.toCharArray();
+  theCheckerChar = textFieldValueChar[0];
+  
+  try{  
+  
+  
+  if (word.contains(textFieldValueChar[0])){
+  //compare(word,textFieldValueChar[0])            ;
+             //System.out.println(Arrays.toString(word.chartAt(textFieldValueChar[0])) +"oooo \n"
+                //     + " \nb " + word.toString() + " \nc " + word.isFirstchar(textFieldValueChar[0])
+             //);
+             
+  }        
+             
+if (word.contains(textFieldValueChar[0])){//if one if value is it
+                          whileLoopInt=0;//don't delte ensures no out of bound exception
+             
+    if(word.isFirstchar(textFieldValueChar[0])){//checks if first letter
+          
+    JLabelArray[0].setText(word.theCharAt_String(0));
     
+          
+    }else{ //
+    }//ends checking if first letter. below checks if other letter
+        
+    theCheckerInt = word.chartAt(theCheckerChar);
     
+    for(int f: theCheckerInt ){
     
+        if(theCheckerChar == word.theCharAt(whileLoopInt) && whileLoopInt <9   ){
+        
+         JLabelArray[whileLoopInt].setText(word.theCharAt_String(whileLoopInt));
+        guessed++;
+        }
+        else{
+        
+        }
+        
+        whileLoopInt++;
+        
+    }//end for loop
+         
+             
+             
+  }else {//System.out.println("keep trying");
+failed++;
+}//ends first "if"  
+
+  
+            
+  
+        
+        
+        
+        
+        
+        
+        textField.setText("");
+        
+  }  catch (ArrayIndexOutOfBoundsException e) {
+
+        //System.out.println("Sorry the program broke");
+
+    }  //end try
+           ImageChecker();
+           //     System.out.println("guessed  "+ guessed);
+             //System.out.println("failed:   " +failed);
+  
+  if (guessed == 9){
+  JOptionPane.showMessageDialog(this, "Eggs are not supposed to be green.\n And"
+          + " you won, congrats. \n\t I don't know what to say I "
+          + "didn't expect you here.\n Have a Good day the game will close"
+          + " after you press OK for your convenience.");
+  
+  
+      
+   FooWindow fooey = new FooWindow();
+    fooey.pullThePlug();
+  
+  }else{
+  if (failed == 8){
+  JOptionPane.showMessageDialog(this, "Eggs are not supposed to be green.\n And"
+          + " you lost, hahaha. \n\t I don't know what to say I "
+          + "didn't expect you here.\n Do you accept you lost"
+          + " ?");
+  
+  
+      
+   FooWindow fooey = new FooWindow();
+    fooey.pullThePlug();
+  
+  
+  
+  
+  
+  
+  }}
+  
+    }//end action performed dont erase
+        
+        
+        
+        void ImageChecker(){
+            
+            switch(failed){
+case 0: current = new ImageIcon(getClass().getResource("i0.png"));
+    break;
+case 1: current = new ImageIcon(getClass().getResource("i1.png"));
+    break;
+case 2: current = new ImageIcon(getClass().getResource("i2.png"));
+    break;
+case 3: current = new ImageIcon(getClass().getResource("i3.png"));
+    break;
+case 4: current = new ImageIcon(getClass().getResource("i4.png"));
+    break;
+case 5: current = new ImageIcon(getClass().getResource("i5.png"));
+    break;
+case 6: current = new ImageIcon(getClass().getResource("i6.png"));
+    break;
+case 7: current = new ImageIcon(getClass().getResource("i7.png"));
+    break;
+case 8:  current = new ImageIcon(getClass().getResource("i8.png"));
+    break;
+        
+        default: current = new ImageIcon(getClass().getResource("i0.png")); 
+    break;
+        }
+        
+        pics.setIcon(current);
+        repaint();
+        
+        
+        
+        
+        }
+        
+        
+        
+        
+        
+        
+  }//end listener
+     
+     
+      public class FooWindow extends JFrame {
+        public FooWindow() {
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setBounds(5, 5, 400, 300);  // yeah yeah, this is an example ;P
+            setVisible(true);
+        }
+        public void pullThePlug() {
+                WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+                Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
+        }
+    }
+        
+
+      
+      
+      
+      
+
 }//end HangmanPanel class
 
-
-/* code that may be useful
-
-//repainting
-{
-this.validate();
-this.repaint();
-}               
-
-
-
-
-
-*/
+           
