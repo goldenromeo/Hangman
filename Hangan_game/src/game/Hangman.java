@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* free and open to anybody. feel free to contribute
  */
 
 package game;
@@ -10,7 +8,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 /**
- *
+ *new edit
  * @author meep
  */
 public class Hangman {
