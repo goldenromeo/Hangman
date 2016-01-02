@@ -99,8 +99,11 @@ JLabel JLabelArray [];
     
     ////////////////////////Welcome
          JLabel j = new JLabel(" Hi, to play enter the key you think "+
-                  "is right and press enter\n Or click the submit button.",JLabel.CENTER);
+                  "is right and press enter. Use uppercase.",JLabel.CENTER);
     add(j)  ;
+    
+  
+    
        
        
     //////////////////////end Welcome 
@@ -253,16 +256,10 @@ JLabel JLabelArray [];
   try{  
   
   
-  if (word.contains(textFieldValueChar[0])){
-  //compare(word,textFieldValueChar[0])            ;
-             //System.out.println(Arrays.toString(word.chartAt(textFieldValueChar[0])) +"oooo \n"
-                //     + " \nb " + word.toString() + " \nc " + word.isFirstchar(textFieldValueChar[0])
-             //);
-             
-  }        
+         
              
 if (word.contains(textFieldValueChar[0])){//if one if value is it
-                          whileLoopInt=0;//don't delte ensures no out of bound exception
+                          whileLoopInt=0;//don't delete ensures no out of bound exception
              
     if(word.isFirstchar(textFieldValueChar[0])){//checks if first letter
           
@@ -270,11 +267,15 @@ if (word.contains(textFieldValueChar[0])){//if one if value is it
     
           
     }else{ //
-    }//ends checking if first letter. below checks if other letter
+    }//ends checking if first letter. below checks if any other letter
         
     theCheckerInt = word.chartAt(theCheckerChar);
     
+    String theWord= ""+theCheckerChar;
+    theWord.toUpperCase();
+    
     for(int f: theCheckerInt ){
+        
     
         if(theCheckerChar == word.theCharAt(whileLoopInt) && whileLoopInt <9   ){
         
@@ -318,13 +319,13 @@ failed++;
   if (guessed == 9){
   JOptionPane.showMessageDialog(this, "Eggs are not supposed to be green.\n And"
           + " you won, congrats. \n\t I don't know what to say I "
-          + "didn't expect you here.\n Have a Good day the game will close"
+          + "didn't expect you here.\n Have a Good day the game will restart"
           + " after you press OK for your convenience.");
   
   
       
-   FooWindow fooey = new FooWindow();
-    fooey.pullThePlug();
+   String[] args = null;
+   Hangman.main(args);
   
   }else{
   if (failed == 8){
@@ -332,11 +333,11 @@ failed++;
           + " you lost, hahaha. \n\t I don't know what to say I "
           + "didn't expect you here.\n Do you accept you lost"
           + " ?");
+      String[] args = null;
   
   
       
-   FooWindow fooey = new FooWindow();
-    fooey.pullThePlug();
+   Hangman.main(args);
   
   
   
