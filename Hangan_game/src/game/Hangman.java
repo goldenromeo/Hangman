@@ -21,30 +21,12 @@ public class Hangman {
         
         JFrame frame = new JFrame("Hangman");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       
-        
+
         frame.getContentPane().add(new HangmanPanel());
-        
-        
+
         frame.pack();
         frame.setVisible(true);
-        
-   
- 
-    
-
-    
-
      }
-    
-    
-   public void newGame(){
-        
-        new HangmanPanel();
-    
-    }
-    
-    
 }
 
 
