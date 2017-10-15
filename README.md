@@ -1,8 +1,6 @@
 Hangman
 =======
 
-a hangman game written in java
+A hangman game written in java
 
-
-Files included are netbeans project files
 
